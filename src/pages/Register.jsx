@@ -46,29 +46,25 @@ const Register = () => {
             <main>
                 <h2>I am Register-page</h2>
                 <Formik initialValues={initialValues} onSubmit={handlSubmit} validationSchema={schema}>
-        <Form>
-          <label htmlFor='userName'>User name</label>
-          <Field  
-          id='userName'
-          name="name"
-          />
-          <FormErrorName name="name"/>
-          
-          <label htmlFor='userMail'>Mail</label>
-          <Field
-            id='userMail'
-            name="mail"
-          />
-            <FormErrorMail name="mail" />
-            <label htmlFor='userPassword'>Password</label>
-          <Field
-            id='userPassword'
-            name="password"
-                        />
-            <FormErrorPassword name="password" />
-          <button type='submit'>Add Contact</button>
-        </Form>
-      </Formik>
+                    <Form>
+                    <Field  
+                        name="name"
+                        placeholder="User name"
+                    />
+                    <FormErrorName name="name"/>
+                    <Field
+                        name="mail"
+                        placeholder="Mail"
+                    />
+                        <FormErrorMail name="mail" />
+                    <Field
+                        name="password"
+                        placeholder="Password"
+                    />
+                        <FormErrorPassword name="password" />
+                        <button type='submit'>Register</button>
+                    </Form>
+                </Formik>
             </main>
         )
     };
