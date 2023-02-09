@@ -1,26 +1,24 @@
-import { useSelector } from "react-redux";
+import { Route, Routes } from "react-router-dom";
+import { lazy } from "react";
 
-import { gettIsLoading, getError } from "redux/selectors";
-import Form from './Form/Form';
-import { ContactList } from './ContactList/ContactList'
-import Filter from './Filter/Filter'
-import { AppBar } from './AppBar.styled'
-import  Loader  from  '../components/Loader/Loader'
+import { Layout } from "./Layout/Layout";
 
+const Home = lazy(() => import("../pages/Home"));
+const Register = lazy(() => import("../pages/Register"));
+const Login = lazy(() => import("../pages/Login"));
+const Contacts = lazy(() => import("../pages/Contacts"));
+const NotFound = lazy(() => import("../pages/NotFound"));
 
-  
-const App = () => {
-  const isLoading = useSelector(gettIsLoading);
-  const error = useSelector(getError);
-
+export const App = () => {
   return (
-    <AppBar>
-      <Form />
-      <Filter />
-      <ContactList />
-      {isLoading && !error && <Loader/>}
-    </AppBar>
-  )
+    <Routes>
+        <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="register" element={<Register />} />
+        <Route path="login" element={<Login />} />
+        <Route path="contacts" element={<Contacts />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
+  );
 };
-
-export default App;
