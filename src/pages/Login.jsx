@@ -1,9 +1,10 @@
+import FormLogin from '../components/FormLogin/FormLogin';
 
 const Login = () => {
-   
+
         return (
             <main>
-                <h2>I am Login-page</h2>
+                <FormLogin />
             </main>
         )
     };

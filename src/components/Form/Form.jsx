@@ -3,9 +3,9 @@ import * as yup from 'yup';
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
-import { getContacts } from "redux/selectors";
+import { getContacts } from "redux/contacts/selectors";
 import { StyleForm } from './Form.styled'
-import { addContact } from "redux/operations";
+import { addContact } from "redux/contacts/operations";
 
 const initialValues = {
   name: '', number: ''
