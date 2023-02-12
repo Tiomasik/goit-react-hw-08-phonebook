@@ -1,8 +1,9 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 
 import { logIn } from 'redux/auth/operations';
+import { StyleForm } from './FormLogin.styled';
 
 const initialValues = {
   email: '', password: ''
@@ -43,9 +44,8 @@ const FormLogin = () => {
 
         return (
             <>
-                <h2>I am LogIn-page</h2>
                 <Formik initialValues={initialValues} onSubmit={handlSubmit} validationSchema={schema}>
-                    <Form>
+                    <StyleForm>
                     <Field
                         name="email"
                         placeholder="Mail"
@@ -58,7 +58,7 @@ const FormLogin = () => {
                     />
                         <FormErrorPassword name="password" />
                         <button type='submit'>Log In</button>
-                    </Form>
+                    </StyleForm>
                 </Formik>
             </>
         )

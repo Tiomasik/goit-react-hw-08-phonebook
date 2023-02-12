@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { filterContacts } from "redux/contacts/contactsSlice";
 import { getContacts } from "redux/contacts/selectors";
-import { StyleName } from './Filter.styled'
 import { StyleInput } from './Filter.styled'
 
 const Filter = () => {
@@ -15,14 +14,9 @@ const Filter = () => {
 return (
     <>
         {contacts.length !== 0 && <div>
-            <h3 style={{textAlign: 'center',
-                        fontSize: 26,
-                        fontWeight: 700,
-                        marginTop: 0,
-                        marginBottom: 10}}>Contacts</h3>
-            <StyleName htmlFor='filter'>Find contacts by names</StyleName>
+            {/* <Title>Contacts</Title> */}
             <StyleInput type="text"
-                    id='filter'
+                placeholder="Find contacts by names"
                     onChange={changeFilter}/>
         </div >}
     </>

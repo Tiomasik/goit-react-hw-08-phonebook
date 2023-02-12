@@ -45,24 +45,18 @@ const FormSubmit = () => {
   }
 
   return (
-    <>
-      <h2 style={{textAlign: 'center',
-                  fontSize: 30,
-                  fontWeight:700}}>Phonebook</h2>
-        
+    <>      
       <Formik initialValues={initialValues} onSubmit={handlSubmit} validationSchema={schema}>
         <StyleForm>
-          <label htmlFor='userName'>Name</label>
           <Field  
-          id='userName'
-          name="name"
+            name="name"
+            placeholder="Name"
           />
           <FormErrorName name="name"/>
           
-          <label htmlFor='userNumber'>Number</label>
           <Field
-            id='userNumber'
             name="number"
+            placeholder="Phone number"
           />
           <FormErrorNumber name="number"/>
           <button type='submit'>Add Contact</button>

@@ -1,8 +1,9 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 
 import { register } from 'redux/auth/operations';
+import { StyleForm } from './FormRegister.styled';
 
 const initialValues = {
   name: '', email: '', password: ''
@@ -51,9 +52,8 @@ const FormRegister = () => {
 
         return (
             <>
-                <h2>I am Register-page</h2>
                 <Formik initialValues={initialValues} onSubmit={handlSubmit} validationSchema={schema}>
-                    <Form>
+                    <StyleForm>
                     <Field  
                         name="name"
                         placeholder="User name"
@@ -71,7 +71,7 @@ const FormRegister = () => {
                     />
                         <FormErrorPassword name="password" />
                         <button type='submit'>Register</button>
-                    </Form>
+                    </StyleForm>
                 </Formik>
             </>
         )

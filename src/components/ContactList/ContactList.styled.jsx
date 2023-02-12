@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const List = styled.ul `
-    margin: 0 auto;
-    margin-top: 15px;
     padding: 10px;
     width: 450px;
     display:flex;
@@ -12,7 +10,7 @@ export const List = styled.ul `
 export const Item = styled.li `
     padding:0 10px;
     background-color: #f0f0f7;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2), 0 4px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 0, 0, 0.3) inset;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;

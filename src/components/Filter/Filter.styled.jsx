@@ -13,4 +13,13 @@ export const StyleInput = styled.input `
     width: 200px;
     padding: 3px;
     border-radius: 5px;
+    border: 2px solid #716e6e;
+`
+
+export const Title = styled.h3 `
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    margin:0;
+    
 `

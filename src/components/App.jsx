@@ -8,10 +8,10 @@ import { useAuth } from '../hooks/useAuth';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 
-const Home = lazy(() => import("../pages/Home"));
-const Register = lazy(() => import("../pages/Register"));
-const Login = lazy(() => import("../pages/Login"));
-const Contacts = lazy(() => import("../pages/Contacts"));
+const Home = lazy(() => import("../pages/Home/Home"));
+const Register = lazy(() => import("../pages/Register/Register"));
+const Login = lazy(() => import("../pages/Login/Login"));
+const Contacts = lazy(() => import("../pages/Contacts/Contacts"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 
 export const App = () => {
