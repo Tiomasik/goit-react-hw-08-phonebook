@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
 export const List = styled.ul `
-    padding: 10px;
     width: 450px;
     display:flex;
     flex-direction:column;
     gap:10px;
 `
 export const Item = styled.li `
-    padding:0 10px;
+    padding:10px 16px;
     background-color: #f0f0f7;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 0, 0, 0.3) inset;
     border-radius: 5px;
