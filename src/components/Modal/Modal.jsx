@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 
 import { changeContact } from 'redux/contacts/operations';
 import { Overlay, ModalForm, Form } from './Modal.styled';
-import { toast } from 'react-toastify';
-// import PropTypes from 'prop-types';
+
 
 const Modal = ({ onClose, id, contact, contactsWihoutChange }) => {
     const [name, setName] = useState(contact.name);
@@ -49,35 +50,39 @@ const Modal = ({ onClose, id, contact, contactsWihoutChange }) => {
         }
     }
 
-    return  <Overlay className="Overlay" onClick={handlOverlayClick}>
-        <ModalForm className="Modal">
-            <Form onSubmit={handlSubmit}>
-                <input
-                type="text"
-                value={name}
-                onChange={handlChangeName}
-                autoComplete="off"
-                autoFocus
-                        />
-                <input
-                type="text"
-                value={number}
-                onChange={handlChangeNumber}
-                autoComplete="off"
-                autoFocus
-                />
-                <div>
-                    <button type="submit">Change</button>
-                    <button type="button" onClick={onClose}>Cancel</button>
-                </div>
-                
-            </Form>
-        </ModalForm>
-    </Overlay>
-    }
+    return (
+        <Overlay className="Overlay" onClick={handlOverlayClick}>
+            <ModalForm className="Modal">
+                <Form onSubmit={handlSubmit}>
+                    <input
+                    type="text"
+                    value={name}
+                    onChange={handlChangeName}
+                    autoComplete="off"
+                    autoFocus
+                            />
+                    <input
+                    type="text"
+                    value={number}
+                    onChange={handlChangeNumber}
+                    autoComplete="off"
+                    autoFocus
+                    />
+                    <div>
+                        <button type="submit">Change</button>
+                        <button type="button" onClick={onClose}>Cancel</button>
+                    </div>
+                </Form>
+            </ModalForm>
+        </Overlay>
+    )
+}
 
-// Modal.propTypes = {
-//     onClose: PropTypes.func.isRequired,
-// }
+Modal.propTypes = {
+    onClose: PropTypes.func.isRequired,
+    contact: PropTypes.object.isRequired,
+    contactsWihoutChange: PropTypes.array.isRequired,
+    id: PropTypes.string.isRequired,
+}
 
 export default Modal;

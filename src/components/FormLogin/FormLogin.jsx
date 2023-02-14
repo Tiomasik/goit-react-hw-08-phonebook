@@ -41,26 +41,24 @@ const FormLogin = () => {
     resetForm()  
   }
 
-        return (
-            <>
-                <Formik initialValues={initialValues} onSubmit={handlSubmit} validationSchema={schema}>
-                    <StyleForm>
-                    <Field
-                        name="email"
-                        placeholder="Mail"
-                    />
-                        <FormErrorMail name="email" />
-                    <Field
-                        name="password"
-                        type="password"
-                        placeholder="Password"
-                    />
-                        <FormErrorPassword name="password" />
-                        <button type='submit'>Log In</button>
-                    </StyleForm>
-                </Formik>
-            </>
-        )
-    };
+  return (
+    <Formik initialValues={initialValues} onSubmit={handlSubmit} validationSchema={schema}>
+      <StyleForm>
+        <Field
+          name="email"
+          placeholder="Mail"
+        />
+        <FormErrorMail name="email" />
+        <Field
+          name="password"
+          type="password"
+          placeholder="Password"
+        />
+        <FormErrorPassword name="password" />
+        <button type='submit'>Log In</button>
+      </StyleForm>
+    </Formik>
+  )
+};
 
 export default FormLogin;

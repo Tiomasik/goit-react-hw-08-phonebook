@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from "react-redux";
+import { useState } from "react"
+import { useSelector } from 'react-redux';
 
 import { deleteContact } from "redux/contacts/operations";
 import { Item, IconSmile, IconPhone, Button, IconChange, IconDelete } from "./ContactItem.styled";
-
-
-import { useState } from "react"
-import { useSelector } from 'react-redux';
 import Modal from '../Modal/Modal'
 import { getContacts } from 'redux/contacts/selectors';
 

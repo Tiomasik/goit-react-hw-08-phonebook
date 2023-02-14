@@ -1,5 +1,4 @@
 import { useAuth } from '../../hooks/useAuth'
-
 import herro from '../../image/herro.png'
 import herroUser from '../../image/homeUser.png'
 import { Herro, Title, HerroImg, HerroImgUser, Button } from './Home.styled'

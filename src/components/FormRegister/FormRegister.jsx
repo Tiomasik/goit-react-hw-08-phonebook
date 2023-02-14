@@ -49,31 +49,29 @@ const FormRegister = () => {
     resetForm()  
   }
 
-        return (
-            <>
-                <Formik initialValues={initialValues} onSubmit={handlSubmit} validationSchema={schema}>
-                    <StyleForm>
-                    <Field  
-                        name="name"
-                        placeholder="User name"
-                    />
-                    <FormErrorName name="name"/>
-                    <Field
-                        name="email"
-                        placeholder="Mail"
-                    />
-                        <FormErrorMail name="email" />
-                    <Field
-                        name="password"
-                        type="password"
-                        placeholder="Password"
-                    />
-                        <FormErrorPassword name="password" />
-                        <button type='submit'>Register</button>
-                    </StyleForm>
-                </Formik>
-            </>
-        )
-    };
+  return (
+    <Formik initialValues={initialValues} onSubmit={handlSubmit} validationSchema={schema}>
+      <StyleForm>
+        <Field  
+          name="name"
+          placeholder="User name"
+        />
+        <FormErrorName name="name"/>
+        <Field
+          name="email"
+          placeholder="Mail"
+        />
+        <FormErrorMail name="email" />
+        <Field
+          name="password"
+          type="password"
+          placeholder="Password"
+        />
+        <FormErrorPassword name="password" />
+        <button type='submit'>Register</button>
+      </StyleForm>
+    </Formik>
+  )
+};
 
 export default FormRegister;

@@ -21,16 +21,16 @@ const authPersistConfig = {
 };
 
 export const store = configureStore({
-    reducer: {
-        contacts: contactsReducer,
-        auth: persistReducer(authPersistConfig, authReducer),
-    },
-     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware({
-            serializableCheck: {
-            ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+  reducer: {
+    contacts: contactsReducer,
+    auth: persistReducer(authPersistConfig, authReducer),
+  },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         },
-    }),
+      }),
 });
 
 export const persistor = persistStore(store);

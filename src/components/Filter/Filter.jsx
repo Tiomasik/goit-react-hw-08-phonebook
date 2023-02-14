@@ -14,7 +14,6 @@ const Filter = () => {
 return (
     <>
         {contacts.length !== 0 && <div>
-            {/* <Title>Contacts</Title> */}
             <StyleInput type="text"
                 placeholder="Find contacts by names"
                     onChange={changeFilter}/>

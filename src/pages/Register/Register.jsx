@@ -5,7 +5,6 @@ import register from '../../image/register.png';
 import { Main, FormRegisterImg } from './Register.styled';
 
 const Register = () => {
-
     return (
         <Main>
             <FormRegister />
