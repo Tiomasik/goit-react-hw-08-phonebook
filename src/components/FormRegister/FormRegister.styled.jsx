@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Form } from 'formik';
 
 export const StyleForm = styled(Form) `
-    width: 400px;
+    width: 100%;
     display: flex;
     gap:10px;
     flex-direction: column;
@@ -11,8 +11,12 @@ export const StyleForm = styled(Form) `
     border-radius: 10px;
     padding: 20px 0;
 
+    @media screen and (min-width: 480px) {
+        width: 420px;
+    }
+
     input {
-        width: 300px;
+        width: 100%;
         padding: 3px;
         margin-bottom:20px;
         font-size: 20px;
@@ -34,5 +38,12 @@ export const StyleForm = styled(Form) `
             background-color: #716e6e;
             color: white;
         }
+    }
+
+    div {
+        color: red;
+        margin-bottom: 30px;
+        width: 300px;
+        text-align: center;
     }
 `

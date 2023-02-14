@@ -1,12 +1,18 @@
 import styled from 'styled-components';
 
 export const List = styled.ul `
-    width: 450px;
+    width: 100%;
     display:flex;
     flex-direction:column;
     gap:10px;
+
+    @media screen and (min-width: 768px) {
+        width: 728px;
+    }
 `
+
 export const Item = styled.li `
+    width: 100%;
     padding:10px 16px;
     background-color: #f0f0f7;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 0, 0, 0.3) inset;

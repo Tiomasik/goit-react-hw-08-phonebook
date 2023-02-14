@@ -35,7 +35,6 @@ const FormLogin = () => {
     const { email, password } = value
     const arrayContact = { email, password }
     
-    console.log(arrayContact)
     dispatch(
       logIn(arrayContact)
     );

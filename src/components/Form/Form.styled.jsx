@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Form } from 'formik';
 
 export const StyleForm = styled(Form) `
-    width:400px;
+    width:100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,8 +11,11 @@ export const StyleForm = styled(Form) `
     background-color: #f0f0f7;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 0, 0, 0.3) inset;
 
+    @media screen and (min-width: 480px) {
+        width: 440px;
+    }
     input{
-        width: 300px;
+        width: 80%;
         padding: 3px;
         margin-bottom:20px;
         font-size: 20px;

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
@@ -17,9 +18,9 @@ export const register = createAsyncThunk(
     try {
       const res = await axios.post('/users/signup', credentials);
         setAuthHeader(res.data.token);
-        console.log(res.data)
       return res.data;
     } catch (error) {
+      toast.error("Sorry, but this mail is already registered :(")
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -33,6 +34,7 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      toast.error("Sorry, but email or password is incorrect :(")
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -43,6 +45,7 @@ export const logOut = createAsyncThunk('users/logout', async (_, thunkAPI) => {
     await axios.post('/users/logout'); 
     clearAuthHeader();
   } catch (error) {
+    toast.error("Sorry, the server is not responding :( Try again later.")
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -53,8 +56,6 @@ export const refreshUser = createAsyncThunk(
     const state = thunkAPI.getState().auth;
     const persistedToken = state.token;
 
-    console.log(persistedToken)
-
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
@@ -62,9 +63,9 @@ export const refreshUser = createAsyncThunk(
     try {
       setAuthHeader(persistedToken);
       const res = await axios.get('/users/current');
-      console.log(res.data)
       return res.data;
     } catch (error) {
+      toast.error("Sorry, the server is not responding :( Try again later.")
       return thunkAPI.rejectWithValue(error.message);
     }
   }

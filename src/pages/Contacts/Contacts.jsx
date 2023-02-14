@@ -1,4 +1,6 @@
 import { useSelector } from "react-redux";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { gettIsLoading, getError } from "redux/contacts/selectors";
 import Form from '../../components/Form/Form';
@@ -20,7 +22,8 @@ const Contacts = () => {
       <Form />
       <Filter />
       <ContactList />
-      {isLoading && !error && <Loader/>}
+      {isLoading && !error && <Loader />}
+      <ToastContainer autoClose={3000} />
     </ContactsWraper>
   )
 };

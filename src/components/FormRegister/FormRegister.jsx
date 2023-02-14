@@ -43,7 +43,6 @@ const FormRegister = () => {
     const { name, email, password } = value
     const arrayContact = { name, email, password }
     
-    console.log(arrayContact)
     dispatch(
       register(arrayContact)
     );

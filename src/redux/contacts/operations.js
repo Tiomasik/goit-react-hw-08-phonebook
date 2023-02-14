@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
-
-// axios.defaults.baseURL = 'https://63dfca3c59bccf35dab9b927.mockapi.io/contacts'
+import { toast } from 'react-toastify';
     
 export const fetchAll = createAsyncThunk(
   "contacts/fetchAll",
@@ -10,6 +9,7 @@ export const fetchAll = createAsyncThunk(
       const response = await axios.get('/contacts');
       return response.data;
     } catch (error) {
+      toast.error("Sorry, the server is not responding :( Try again later.")
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -20,8 +20,10 @@ export const addContact = createAsyncThunk(
   async (contact, thunkAPI) => {
     try {
       const response = await axios.post('/contacts', contact);
+      toast.success("The contact has been successfully added to your phonebook!")
       return response.data;
     } catch (error) {
+      toast.error("Sorry, the server is not responding :( Try again later.")
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -32,8 +34,10 @@ export const deleteContact = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const response = await axios.delete(`/contacts/${id}`);
+      toast.success("The contact has been deleted from your phonebook!")
       return response.data;
     } catch (error) {
+      toast.error("Sorry, the server is not responding :( Try again later.")
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -43,10 +47,12 @@ export const changeContact = createAsyncThunk(
   "contacts/addContact",
   async (contact, thunkAPI) => {
     try {
-      const arrayContact = { name: contact.name, number:contact.number }
+      const arrayContact = { name: contact.name, number: contact.number }
+      toast.success("The contact has been changed in your phonebook!")
       const response = await axios.patch(`/contacts/${contact.id}`, arrayContact);
       return response.data;
     } catch (error) {
+      toast.error("Sorry, the server is not responding :( Try again later.")
       return thunkAPI.rejectWithValue(error.message);
     }
   }

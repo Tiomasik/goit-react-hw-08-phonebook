@@ -3,15 +3,28 @@ import { BsEmojiWink } from "react-icons/bs";
 
 export const User = styled.div `
     display: flex;
-    gap: 15px;
+    flex-direction: column;
     align-items: center;
 
+    @media screen and (min-width: 480px) {
+        flex-direction: row;
+    }
+
     p {
-        font-size: 20px;
+        font-size: 14px;
         font-weight: 700;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 5px;
+
+        @media screen and (max-width: 479px) {
+            min-width: 100px;
+        }
+
+        @media screen and (min-width: 768px) {
+            font-size: 20px;
+            gap: 10px;
+        }
     }
 
     button {
@@ -31,7 +44,12 @@ export const User = styled.div `
 `
 
 export const IconSmile = styled(BsEmojiWink) `
-    color: #716e6e;
-    width: 30px;
-    height: 30px;
+    color: tomato;
+    width: 20px;
+    height: 20px;
+
+    @media screen and (min-width: 768px) {
+        width: 30px;
+        height: 30px;
+    }
 `

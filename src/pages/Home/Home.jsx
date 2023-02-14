@@ -12,12 +12,9 @@ const Home = () => {
             <div>
                 {!isLoggedIn && <Title>Welcome to Phonebook</Title>}
                 {!isLoggedIn && <Button to={`/register`}>GET STARTED!</Button>}
-                {/* <Button to={`/register`}>GET STARTED!</Button>  */}
-            </div>
-            
+            </div>      
             {!isLoggedIn && <HerroImg src={herro} alt="123" />}
-            {isLoggedIn && <HerroImgUser src={herroUser} alt="123" />}
-            
+            {isLoggedIn && <HerroImgUser src={herroUser} alt="123" />}         
         </Herro>
     )
 };

@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import { useDispatch } from "react-redux";
 
 import { deleteContact } from "redux/contacts/operations";
-import { Item, IconSmile, IconPhone } from "./ContactItem.styled";
+import { Item, IconSmile, IconPhone, Button, IconChange, IconDelete } from "./ContactItem.styled";
+
 
 import { useState } from "react"
 import { useSelector } from 'react-redux';
@@ -33,8 +34,10 @@ const ContactItem = ({ name, number, id }) => {
                 <Item><IconSmile /><span>{name}</span></Item>
                 <Item><IconPhone/><span>{number}</span></Item>
             </div>
-            <button type="button" onClick={() => dispatch(deleteContact(id))}>Delete contact</button>
-            <button type="button" onClick={onOpen}>Change contact</button>
+            <Button>
+                <button type="button" onClick={onOpen}><IconChange/><span>Change</span></button>
+                <button type="button" onClick={() => dispatch(deleteContact(id))}><IconDelete/><span>Delete</span></button>
+            </Button>
             {openModal && <Modal id={id} onClose={onClose} contact={contact} contactsWihoutChange={ contactsWihoutChange } />}
         </>)
 }

@@ -2,6 +2,7 @@ import { Formik, Field, ErrorMessage  } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { toast } from 'react-toastify';
 
 import { getContacts } from "redux/contacts/selectors";
 import { StyleForm } from './Form.styled'
@@ -40,7 +41,7 @@ const FormSubmit = () => {
     if (!(contacts.filter(contact => contact.name.toLowerCase() === arrayContact.name.trim().toLowerCase())).length) {
       resetForm()
       return dispatch(addContact(arrayContact))
-    } else alert(`${arrayContact.name} is already in contacts`)
+    } else toast.error(`${arrayContact.name} is already in contacts`)
     resetForm()  
   }
 

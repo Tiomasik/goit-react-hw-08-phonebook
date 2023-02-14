@@ -1,6 +1,7 @@
 import { Header, Link } from './AppBar.styled'
 import { useAuth } from '../../hooks/useAuth'
 import { UserMenu } from '../UserMenu/UserMenu'
+import { ImHome3, ImPhone, ImEnter, ImUsers } from "react-icons/im";
 
 export const AppBar = () => {
     const { isLoggedIn } = useAuth();
@@ -8,12 +9,12 @@ export const AppBar = () => {
       <Header>
       <nav>
         <div>
-          <Link to="/">Home</Link>
-          {isLoggedIn && <Link to="/contacts">Contacts</Link>}
+          <Link to="/"><ImHome3/>Home</Link>
+          {isLoggedIn && <Link to="/contacts"><ImPhone/>Contacts</Link>}
         </div>
           <div>
-            {!isLoggedIn && <Link to="/register">Register</Link>}
-            {!isLoggedIn && <Link to="/login">Login</Link>}
+            {!isLoggedIn && <Link to="/register"><ImUsers/>Register</Link>}
+            {!isLoggedIn && <Link to="/login"><ImEnter/>Login</Link>}
             {isLoggedIn && <UserMenu/>}
         </div> 
         </nav> 

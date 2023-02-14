@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { changeContact } from 'redux/contacts/operations';
 import { Overlay, ModalForm, Form } from './Modal.styled';
+import { toast } from 'react-toastify';
 // import PropTypes from 'prop-types';
 
 const Modal = ({ onClose, id, contact, contactsWihoutChange }) => {
@@ -22,13 +23,12 @@ const Modal = ({ onClose, id, contact, contactsWihoutChange }) => {
     
     const handlSubmit = (value) => {  
         value.preventDefault()
-
         const arrayContact = { id, name: value.target[0].value, number: value.target[1].value }
         
         if (!(contactsWihoutChange.filter(contact => contact.name.toLowerCase() === arrayContact.name.trim().toLowerCase())).length) {
             onClose()
         return dispatch(changeContact(arrayContact))
-        } else alert(`${arrayContact.name} is already in contacts`)   
+        } else toast.error(`${arrayContact.name} is already in contacts`)   
     }
     
     useEffect(() => {
